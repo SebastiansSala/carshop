@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CarsType } from "@/types";
 
 export const signupRequest = async (
   username: string,
@@ -45,26 +44,27 @@ const getAllCars = async () => {
         },
       }
     );
-    return response.json();;
+    return response.json();
   } catch (error) {
     console.error(error);
   }
-}
+};
 
-export const getCars = async () => {
+export const getCars = async (model: string) => {
   try {
     const response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}`,
       {
         method: "GET",
         headers: {
           "X-RapidAPI-Key":
-            "4aaf57147fmsh2f6d656deea7190p191480jsn1a00115a4a22",
+            "8053962894msh160c716e76101ddp1501b4jsnf755d759827f",
           "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
         },
+        next: {revalidate: 1000}
       }
     );
-    return response.json();;
+    return await response.json();
   } catch (error) {
     console.error(error);
   }

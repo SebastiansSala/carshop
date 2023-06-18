@@ -1,4 +1,3 @@
-
 export type UserType = {
   id: string;
   email: string;
@@ -24,4 +23,26 @@ export type CarsType = {
 export type ButtonPropsType = {
   text: string;
   route: string;
+};
+
+export type ServicePropsType = {
+  img: string;
+  title: string;
+  desc: string;
+};
+
+export type ViewType = {
+  [key: string]: boolean;
+  bmw: boolean;
+  ferrari: boolean;
+  ford: boolean;
+  porsche: boolean;
+  toyota: boolean;
+  camry: boolean;
+};
+
+export type CollectionNavbarBrandType = {
+  text: string;
+  handleView: (brand: string) => void;
+  view: ViewType;
 };

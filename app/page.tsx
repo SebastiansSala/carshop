@@ -2,7 +2,9 @@
 import About from "@/components/About";
 import Brands from "@/components/Brands";
 import CarsSection from "@/components/CarsSection";
+import Collection from "@/components/Collection/Collection";
 import Hero from "@/components/Hero/Hero";
+import Services from "@/components/Services/Services";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <Hero />
       <Brands />
       <About />
+      <Services />
+      <Collection />
     </main>
   );
 }

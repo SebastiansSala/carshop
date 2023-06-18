@@ -5,21 +5,16 @@ import Cart from "./Cart";
 import LinkAnchor from "../LinkAnchor";
 import Searchbar from "./Searchbar";
 import { AuthContext } from "@/providers/auth";
+import Logo from "../Logo";
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <header className="fixed w-full z-50 bg-white top-0 shadow-md border-black py-4 px-6">
-      <div className="container mx-auto">
+    <header className="fixed w-full z-50 bg-white shadow-md top-0 border-black py-4 px-6">
+      <div className="container mx-auto ">
         <section className="flex mb-5 gap-6 items-center">
-          <Image
-            src="/../public/logo.webp"
-            width={120}
-            height={100}
-            alt="logo"
-            className="w-auto h-auto"
-          />
+          <Logo />
           <Searchbar />
           <Cart />
           {currentUser ? (
