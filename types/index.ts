@@ -5,7 +5,7 @@ export type UserType = {
   password: string;
 };
 
-export type Cars = {
+export type CarsType = {
   city_mpg: number,
   class: string,
   combination_mpg: number,
