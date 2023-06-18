@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Heroitems } from "@/data";
+import Button from "../Button";
 import "@/styles/snap.css";
 
 export default function Hero() {
@@ -38,22 +39,38 @@ export default function Hero() {
   }, [direction]);
 
   return (
-    <section
-      className={`flex snap-x snap-mandatory 2xl:container hide-scrollbar 2xl:mx-auto ${
-        direction === "forward" && "scroll-smooth"
-      } overflow-x-scroll mt-24 xl:mt-40 h-96 xl:h-96  relative`}
-      ref={snapRef}
-    >
-      {Heroitems.map((item, index) => (
-        <div key={index} className="snap-center relative flex-shrink-0 w-full">
-          <Image
-            src={item.img}
-            fill
-            alt="image"
-            className="h-auto w-auto object-cover"
-          />
-        </div>
-      ))}
+    <section className="relative">
+      <div
+        className={`flex snap-x snap-mandatory 2xl:container hide-scrollbar 2xl:mx-auto ${
+          direction === "forward" && "scroll-smooth"
+        } overflow-x-scroll mt-24 xl:mt-40 h-96 xl:h-96  relative`}
+        ref={snapRef}
+      >
+        {Heroitems.map((item, index) => (
+          <div
+            key={index}
+            className="snap-center relative flex-shrink-0 w-full"
+          >
+            <Image
+              src={item.img}
+              fill
+              alt="image"
+              className="h-auto w-auto object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="z-10 absolute max-w-sm">
+        <h1 className="font-bold text-4xl">
+          Search and Find your best car rental with easy way
+        </h1>
+        <p>
+          Drive performance and your cross-funcional collaboration with
+          easy-to-sue dashboards, data visualizations, and authomatical insights
+          in one click
+        </p>
+        <Button text="Booking now" route="reservation" />
+      </div>
     </section>
   );
 }
