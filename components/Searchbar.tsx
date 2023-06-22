@@ -1,17 +1,30 @@
-'use client'
-import { FormEvent } from "react";
+"use client";
+import { FormEvent, useContext } from "react";
+import { SearchbarContext } from "@/providers/searchbar";
 
 const Searchbar = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
+  const { search, setSearch } = useContext(SearchbarContext);
+
+  const handleChange = (event: FormEvent<HTMLInputElement>) => {
+    const regexedSearch = event.currentTarget.value.replace(/^\s+|\s+(?=\s)/g, "");
+    setSearch(regexedSearch);
+  }
+
   return (
-    <form className="flex flex-1 hover:shadow-md shadow-sm transition" onSubmit={(e) => handleSubmit(e)}>
+    <form
+      className="flex flex-1 hover:shadow-md shadow-sm transition"
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <input
         type="text"
         placeholder="What are you looking for?"
         className="pb-3 rounded-l text-xs md:text-base pt-1 px-2 outline-none w-full bg-white"
+        value={search}
+        onChange={handleChange}
       />
       <button
         type="submit"
@@ -34,6 +47,6 @@ const Searchbar = () => {
       </button>
     </form>
   );
-}
+};
 
 export default Searchbar;

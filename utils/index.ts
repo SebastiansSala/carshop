@@ -43,6 +43,7 @@ export const getAllCars = async () => {
     return response.json();
   } catch (error) {
     console.error(error);
+    return [];
   }
 };
 
