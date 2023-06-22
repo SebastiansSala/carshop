@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button";
 import CollectionNavbar from "./CollectionNavbar";
 import CollectionFetch from "./CollectionFetch";
@@ -9,13 +9,13 @@ const Collection = () => {
 
   return (
     <section className="flex flex-col gap-5 justify-center items-center pb-56">
-      <h3 className="">Collection</h3>
-      <h2>Our Collection Cars</h2>
+      <h3 className="text-[#5F51FC] font-bold">Collection</h3>
+      <h2 className="text-5xl font-bold text-center mb-10">Our Collection Cars</h2>
       <CollectionNavbar setSelectedView={setSelectedView}/>
-      <div className="py-4 px-2 grid grid-cols-3 gap-4">
-        <CollectionFetch brand={selectedView} />
+      <div className="grid grid-cols-3 gap-4 w-full px-40 pt-10">
+        <CollectionFetch brand={selectedView}/>
       </div>
-      <Button text="See all cars" route="" />
+      <Button text="See all cars" route=""/>
     </section>
   );
 };

@@ -31,17 +31,13 @@ export const loginRequest = async (email: string, password: string) => {
   }
 };
 
-const getAllCars = async () => {
+export const getAllCars = async () => {
   try {
     const response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=Corolla",
+      "http://localhost:5000/cars",
       {
         method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "4aaf57147fmsh2f6d656deea7190p191480jsn1a00115a4a22",
-          "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
-        },
+        next: {revalidate: 60}
       }
     );
     return response.json();
@@ -50,18 +46,14 @@ const getAllCars = async () => {
   }
 };
 
-export const getCars = async (model: string) => {
+
+export const getCarsByBrand = async (brand: string) => {
   try {
     const response = await fetch(
-      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}`,
+      `http://localhost:5000/cars/${brand}`,
       {
         method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "8053962894msh160c716e76101ddp1501b4jsnf755d759827f",
-          "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
-        },
-        next: {revalidate: 1000}
+        next: {revalidate: 60}
       }
     );
     return await response.json();

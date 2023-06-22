@@ -1,7 +1,7 @@
 
 import About from "@/components/About";
 import Brands from "@/components/Brands";
-import CarsSection from "@/components/CarsSection";
+import CarsSection from "@/components/FilterSection/CarsSection";
 import Collection from "@/components/Collection/Collection";
 import Hero from "@/components/Hero/Hero";
 import Services from "@/components/Services/Services";

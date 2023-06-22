@@ -9,11 +9,11 @@ const CollectionNavbar = ({
 }) => {
   const [view, setView] = useState<ViewType>({
     bmw: true,
-    ferrari: false,
+    honda: false,
     ford: false,
-    porsche: false,
     toyota: false,
-    camry: false,
+    chevrolet: false,
+    mercedes: false
   });
 
   const handleView = (brand: string) => {
@@ -29,7 +29,7 @@ const CollectionNavbar = ({
 
   return (
     <>
-      <nav>
+      <nav className="w-full">
         <ul className="flex gap-6 w-full">
           <CollectionNavbarBrand
             text="BMW"
@@ -37,17 +37,7 @@ const CollectionNavbar = ({
             handleView={handleView}
           />
           <CollectionNavbarBrand
-            text="Ferrari"
-            view={view}
-            handleView={handleView}
-          />
-          <CollectionNavbarBrand
-            text="Ford"
-            view={view}
-            handleView={handleView}
-          />
-          <CollectionNavbarBrand
-            text="Porsche"
+            text="Honda"
             view={view}
             handleView={handleView}
           />
@@ -57,7 +47,17 @@ const CollectionNavbar = ({
             handleView={handleView}
           />
           <CollectionNavbarBrand
-            text="Camry"
+            text="Ford"
+            view={view}
+            handleView={handleView}
+          />
+          <CollectionNavbarBrand
+            text="Chevrolet"
+            view={view}
+            handleView={handleView}
+          />
+          <CollectionNavbarBrand
+            text="Mercedes"
             view={view}
             handleView={handleView}
           />

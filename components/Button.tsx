@@ -3,12 +3,8 @@ import { FC } from "react";
 import { ButtonPropsType } from "@/types";
 import { useRouter } from "next/navigation";
 
-const Button: FC<ButtonPropsType> = ({ text, route }) => {
+const Button: FC<ButtonPropsType> = ({ text, route, handleClick }) => {
   const router = useRouter();
-
-  const handleClick = () => {
-    router.push(route);
-  };
 
   return (
     <button

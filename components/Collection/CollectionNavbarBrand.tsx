@@ -11,7 +11,7 @@ const CollectionNavbarBrand = ({
   return (
     <li
       onClick={() => handleView(textLowercase)}
-      className={`cursor-pointer ${isActive && "border-b-4 border-black"}`}
+      className={`cursor-pointer flex-1 py-2 text-center ${isActive && "border-b-4 border-black"}`}
     >
       {text}
     </li>

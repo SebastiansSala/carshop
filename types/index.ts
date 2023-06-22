@@ -6,23 +6,18 @@ export type UserType = {
 };
 
 export type CarsType = {
-  city_mpg: number;
-  class: string;
-  combination_mpg: number;
-  cylinders: number;
-  displacement: number;
-  drive: string;
-  fuel_type: string;
-  highway_mpg: number;
-  make: string;
+  _id: string;
+  brand: string;
   model: string;
-  transmission: string;
   year: number;
+  color: string;
+  price: number;
 };
 
 export type ButtonPropsType = {
   text: string;
   route: string;
+  handleClick? : () => void; 
 };
 
 export type ServicePropsType = {
@@ -34,11 +29,11 @@ export type ServicePropsType = {
 export type ViewType = {
   [key: string]: boolean;
   bmw: boolean;
-  ferrari: boolean;
+  honda: boolean;
   ford: boolean;
-  porsche: boolean;
+  mercedes: boolean;
+  chevrolet: boolean;
   toyota: boolean;
-  camry: boolean;
 };
 
 export type CollectionNavbarBrandType = {
