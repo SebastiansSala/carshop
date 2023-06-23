@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import { FormEvent, useContext } from "react";
 import { SearchbarContext } from "@/providers/searchbar";
 
@@ -21,7 +21,7 @@ const Searchbar = () => {
     >
       <input
         type="text"
-        placeholder="What are you looking for?"
+        placeholder="Looking for a model?"
         className="pb-3 rounded-l text-xs md:text-base pt-1 px-2 outline-none w-full bg-white"
         value={search}
         onChange={handleChange}

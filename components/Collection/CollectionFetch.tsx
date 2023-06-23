@@ -25,8 +25,10 @@ const CollectionFetch = ({ brand }: { brand: string }) => {
         {cars.map((car, index) => (
           <div key={index} className="py-4 px-2 shadow-lg">
             <p className="mt-2 text-xl font-bold">${car.price}</p>
-            <p className="mt-2 text-lg font-semibold">{car.model} {car.year}</p>
-            <Button text="Booking now" route=""/>
+            <p className="mt-2 text-lg font-semibold">
+              {car.model} {car.year}
+            </p>
+              <Button text="Booking now"/>
           </div>
         ))}
       </Suspense>

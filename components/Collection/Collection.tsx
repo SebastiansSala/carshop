@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "../Button";
 import CollectionNavbar from "./CollectionNavbar";
 import CollectionFetch from "./CollectionFetch";
+import Anchor from "../Anchor";
 
 const Collection = () => {
   const [selectedView, setSelectedView] = useState("bmw");
@@ -15,7 +16,7 @@ const Collection = () => {
       <div className="grid grid-cols-3 gap-4 w-full px-40 pt-10">
         <CollectionFetch brand={selectedView}/>
       </div>
-      <Button text="See all cars" route=""/>
+      <Anchor text="See all cars" route="/cars" />
     </section>
   );
 };

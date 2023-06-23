@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Heroitems } from "@/data";
 import Button from "../Button";
 import "@/styles/snap.css";
+import Anchor from "../Anchor";
 
 export default function Hero() {
   const snapRef = useRef<HTMLDivElement>(null);
@@ -60,16 +61,16 @@ export default function Hero() {
           </div>
         ))}
       </div>
-      <div className="z-10 absolute max-w-sm">
-        <h1 className="font-bold text-4xl">
+      <div className="z-10 absolute  top-0 mt-10 left-28 max-w-sm">
+        <h1 className="font-bold text-4xl mb-5">
           Search and Find your best car rental with easy way
         </h1>
-        <p>
+        <p className="mb-7">
           Drive performance and your cross-funcional collaboration with
           easy-to-sue dashboards, data visualizations, and authomatical insights
           in one click
         </p>
-        <Button text="Booking now" route="reservation" />
+        <Anchor text="Booking now" route="reservation" />
       </div>
     </section>
   );

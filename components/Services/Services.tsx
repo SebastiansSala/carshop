@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Service from "./Service";
 import { ServicesInfo } from "@/data";
 
@@ -5,12 +6,18 @@ export default function Services() {
   return (
     <section className="relative">
       <div className="grid gap-4 place-content-center w-full pt-20 pb-48 relative bg-slate-800 z-10">
+        <Image
+          src="/../public/images/service.jpg"
+          fill
+          alt="service background"
+          className=""
+        />
         <div className="max-w-lg text-center h-full">
-          <h2 className="text-violet-600">Our Service</h2>
-          <h1 className="text-5xl text-white font-bold mt-6">
+          <h2 className="text-violet-600 relative z-20">Our Service</h2>
+          <h1 className="text-5xl text-white relative z-20 font-bold mt-6">
             We have best Service for the rent cart
           </h1>
-          <p className="text-lg text-gray-400 mt-8">
+          <p className="text-lg text-gray-400 mt-8 relative z-20">
             Senras easdfeearstartatratiornsaoixocvkcuxv xucnv cv xcv{" "}
           </p>
         </div>

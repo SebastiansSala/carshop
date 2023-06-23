@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
 import Car from "./Car";
 import { getAllCars } from "@/utils";
-import Searchbar from "../Searchbar";
+import AsideFilters from "./AsideFilters";
 
 function CarsSection() {
   const carsPromise = getAllCars();
 
   return (
-    <section className="pt-40 px-20 w-full">
-      <Searchbar />
+    <section className="flex pt-4 px-20">
+      <AsideFilters />
       <Suspense fallback={<div>Loading...</div>}>
         <Car promise={carsPromise} />
       </Suspense>

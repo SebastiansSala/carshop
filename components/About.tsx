@@ -1,17 +1,17 @@
 import React from "react";
-import Button from "./Button";
 import Image from "next/image";
+import Anchor from "./Anchor";
 
 export default function About() {
   return (
-    <section className="grid grid-cols-2 gap-12 py-24">
+    <section className="grid grid-cols-2 gap-12 py-24 px-36">
       <div>
         <Image
           src="/../public/images/about.jpg"
-          width={250}
+          width={350}
           height={150}
           alt="about image"
-          className="w-full h-full object-cover"
+          className="w-auto h-full object-contain shadow-2xl"
         />
       </div>
       <div className="flex flex-col justify-center">
@@ -24,7 +24,7 @@ export default function About() {
           are <span className="text-gray-500">various attractive</span> offers from Moladin through our
           collaboration with various trusted learning partners
         </p>
-        <Button text="See all cars" route=""/>
+        <Anchor text="See all cars" route="/cars"/>
       </div>
     </section>
   );

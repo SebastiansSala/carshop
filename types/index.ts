@@ -16,6 +16,11 @@ export type CarsType = {
 
 export type ButtonPropsType = {
   text: string;
+  handleClick? : () => void; 
+};
+
+export type AnchorPropsType = {
+  text: string;
   route: string;
   handleClick? : () => void; 
 };
