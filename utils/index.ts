@@ -9,11 +9,12 @@ export const signupRequest = async (
     console.log(username);
     console.log(email);
     console.log(password);
-    const response = await axios.post("http://localhost:3100/auth/signup", {
+    const response = await axios.post("http://localhost:5000/users/signup", {
       username,
       email,
       password,
     });
+    return await response.data;
   } catch (e) {
     console.error(e);
   }
@@ -21,10 +22,12 @@ export const signupRequest = async (
 
 export const loginRequest = async (email: string, password: string) => {
   try {
-    const response = await axios.post("http://localhost:3100/auth/login", {
+    const response = await axios.post("http://localhost:5000/users/login", {
       email,
       password,
     });
+    console.log(response.data);
+    console.log(response);
     return await response.data;
   } catch (e) {
     console.error(e);

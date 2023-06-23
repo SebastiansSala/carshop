@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { loginRequest } from "@/utils";
+import Cookies from "js-cookie";
 import { useContext } from "react";
+import { loginRequest } from "@/utils";
 import { AuthContext } from "@/providers/auth";
 import { UserType } from "@/types";
 
@@ -18,18 +19,21 @@ export default function Login() {
 
   const router = useRouter();
 
-  const { setCurrentUser } = useContext(AuthContext);
+  const { setCurrentUser, currentUser } = useContext(AuthContext);
 
   const onSubmit: SubmitHandler<UserType> = async (data) => {
     try {
-      const { email, password } = data;
-      const response = await loginRequest(email, password);
+      const response = await loginRequest(data.email, data.password);
       console.log(response);
-      if(!response?.ok){
-        reset();
-        return
-      }
-      setCurrentUser(response);
+     
+      console.log(response.token);
+      Cookies.set("token", response.token, {
+        expires: 1,
+        
+      });
+      console.log(Cookies.get("token"));
+      setCurrentUser(response.token);
+      console.log(currentUser)
       reset();
       router.push("/");
     } catch (e) {

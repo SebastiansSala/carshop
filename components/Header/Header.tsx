@@ -1,14 +1,20 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "@/providers/auth";
 import LinkAnchor from "../LinkAnchor";
 import Logo from "../Logo";
 import Button from "../Button";
+import Link from "next/link";
 
 const Header = () => {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   const handleClick = () => {};
+
+  useEffect(() => {
+    console.log(currentUser)
+  }, [])
+  
 
   return (
     <header className="fixed w-full z-50 bg-white shadow-lg top-0 border-black py-4 px-6">
@@ -22,13 +28,13 @@ const Header = () => {
             <LinkAnchor title="Contact" route="" />
           </div>
 
-          {currentUser !== null ? (
+          {currentUser?._id !== null ? (
             <>
               <Button text="logout" handleClick={handleClick} />
-              <p>{currentUser.email || "For some reason cant get the email"}</p>
+              <p>{currentUser?.email || "For some reason cant get the email"}</p>
             </>
           ) : (
-            <p>Login</p>
+            <Link href={"/login"}>Login</Link>
           )}
         </section>
       </div>

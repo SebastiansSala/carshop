@@ -1,12 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signupRequest } from "@/utils";
+import { useContext } from "react";
 import { UserType } from "@/types";
+import { AuthContext } from "@/providers/auth";
+
 export default function Signup() {
   const router = useRouter();
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   const {
     register,
@@ -18,9 +23,17 @@ export default function Signup() {
   const onSubmit: SubmitHandler<UserType> = async (data: UserType) => {
     try {
       const { username, email, password } = data;
-      await signupRequest(username, email, password);
+      const response = await signupRequest(username, email, password);
+      console.log(response);
+      console.log(response.token);
+      Cookies.set("token", response.token, {
+        expires: 1,
+        secure: true,
+        sameSite: "strict",
+      });
+      setCurrentUser(response.token);
       reset();
-      router.push("/login");
+      router.push("/");
     } catch (e) {
       console.error(e);
     }
