@@ -4,10 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { loginRequest } from "@/utils";
 import { AuthContext } from "@/providers/auth";
 import { UserType } from "@/types";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function Login() {
   const {
@@ -24,18 +27,36 @@ export default function Login() {
   const onSubmit: SubmitHandler<UserType> = async (data) => {
     try {
       const response = await loginRequest(data.email, data.password);
-      console.log(response);
-     
-      console.log(response.token);
-      Cookies.set("token", response.token, {
-        expires: 1,
-        
-      });
-      console.log(Cookies.get("token"));
-      setCurrentUser(response.token);
-      console.log(currentUser)
-      reset();
-      router.push("/");
+      if (response && response.status === 200) {
+        setCurrentUser(response.data.token);
+        toast("Successfully logged in", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        Cookies.set("token", response?.data.token, {
+          expires: 1,
+        });
+        router.push("/");
+        console.log(Cookies.get("token"));
+      } else {
+        toast.error("Invalid credentials", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return;
+      }
     } catch (e) {
       console.error(e);
     }
@@ -46,6 +67,18 @@ export default function Login() {
       className="flex flex-col justify-center gap-6 items-center text-xl w-[700px] border-black transition"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <h1 className="text-5xl text-black/70 mb-3 font-bold">Login</h1>
       <input
         type="text"

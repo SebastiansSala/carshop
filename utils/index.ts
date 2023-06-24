@@ -14,7 +14,7 @@ export const signupRequest = async (
       email,
       password,
     });
-    return await response.data;
+    return response;
   } catch (e) {
     console.error(e);
   }
@@ -26,9 +26,7 @@ export const loginRequest = async (email: string, password: string) => {
       email,
       password,
     });
-    console.log(response.data);
-    console.log(response);
-    return await response.data;
+    return response;
   } catch (e) {
     console.error(e);
   }

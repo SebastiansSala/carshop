@@ -7,7 +7,7 @@ function CarsSection() {
   const carsPromise = getAllCars();
 
   return (
-    <section className="flex pt-4 px-20">
+    <section className="flex pt-4 xl:px-20">
       <AsideFilters />
       <Suspense fallback={<div>Loading...</div>}>
         <Car promise={carsPromise} />

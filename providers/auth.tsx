@@ -26,18 +26,19 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     username: null,
   });
 
+  /*
   useEffect(() => {
     const token = Cookies.get("token");
     if (token) {
       try {
-        const { email, username, _id } = JSON.parse(token);
+        const { email, username, _id } = token;
         setCurrentUser({ email, username, _id });
       } catch (error) {
         console.error("Failed to parse token", error);
       }
     }
   }, []);
-
+*/
   return (
     <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
       {children}

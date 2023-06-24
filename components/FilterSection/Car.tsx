@@ -77,21 +77,21 @@ function Products({ promise }: { promise: Promise<CarsType[]> }) {
 
   return (
     <motion.div
-      className="flex flex-wrap justify-center flex-1 px-10 gap-4 p-4"
+      className="flex flex-wrap justify-center flex-1 px-10 gap-10 md:gap-4 p-4"
       animate={show ? "open" : "closed"}
       variants={itemsVariants}
     >
-      {cars.map((car, index) => (
+      {cars.map((car) => (
         <motion.div
-          key={index}
+          key={car._id}
           className=" bg-white rounded-lg min-w-[300px] shadow-md"
           variants={itemVariants}
         >
           <Image
-            src={""}
+            src={car.img}
             width={300}
             height={150}
-            className="w-full object-contain h-auto"
+            className="w-96  md:max-w-2xl object-contain h-40"
             alt="car"
           />
           <div className="p-2">

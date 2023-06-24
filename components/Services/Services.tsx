@@ -10,7 +10,7 @@ export default function Services() {
           src="/../public/images/service.jpg"
           fill
           alt="service background"
-          className=""
+          className="aspect-auto"
         />
         <div className="max-w-lg text-center h-full">
           <h2 className="text-violet-600 relative z-20">Our Service</h2>

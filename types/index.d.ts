@@ -12,6 +12,7 @@ export type CarsType = {
   year: number;
   color: string;
   price: number;
+  img: string;
 };
 
 export type ButtonPropsType = {

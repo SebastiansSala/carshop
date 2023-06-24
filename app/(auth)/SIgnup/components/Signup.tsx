@@ -24,16 +24,19 @@ export default function Signup() {
     try {
       const { username, email, password } = data;
       const response = await signupRequest(username, email, password);
-      console.log(response);
-      console.log(response.token);
-      Cookies.set("token", response.token, {
-        expires: 1,
-        secure: true,
-        sameSite: "strict",
-      });
-      setCurrentUser(response.token);
-      reset();
-      router.push("/");
+      if (response && response.status === 200) {
+        const { data } = response;
+        Cookies.set("token", data.token, {
+          expires: 1,
+          secure: true,
+          sameSite: "strict",
+        });
+        setCurrentUser(data.token);
+        reset();
+        router.push("/");
+      }else{
+
+      }
     } catch (e) {
       console.error(e);
     }

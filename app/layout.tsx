@@ -1,7 +1,7 @@
-import Header from "@/components/Header/Header";
+import Header from "@/app/components/Header";
 import "./globals.css";
 import AuthProvider from "@/providers/auth";
-import { Footer } from "@/components/Footer/Footer";
+import { Footer } from "@/app/components/Footer";
 
 export const metadata = {
   title: "Car shop",
@@ -21,6 +21,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </AuthProvider>
+
       </body>
     </html>
   );

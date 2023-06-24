@@ -4,7 +4,7 @@ import Anchor from "./Anchor";
 
 export default function About() {
   return (
-    <section className="grid grid-cols-2 gap-12 py-24 px-36">
+    <section className="grid grid-cols-2 gap-12 py-24 px-36" id="about">
       <div>
         <Image
           src="/../public/images/about.jpg"
