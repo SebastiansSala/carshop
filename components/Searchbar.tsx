@@ -1,6 +1,6 @@
 'use client'
 import { FormEvent, useContext } from "react";
-import { SearchbarContext } from "@/providers/searchbar";
+import { SearchbarContext } from "@/context/SeachbarContext";
 
 const Searchbar = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

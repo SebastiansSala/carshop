@@ -26,7 +26,7 @@ export default function Hero() {
       className="relative flex mt-28 max-h-80 justify-center mb-20"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true }}
+      viewport={{ once: false }}
     >
       <div className="z-10 w-1/2 top-0 mt-10 left-28">
         <h1 className="font-bold text-4xl mb-5">

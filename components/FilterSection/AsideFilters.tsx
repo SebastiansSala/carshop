@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { motion } from "framer-motion";
-import { FilternavContext } from "@/providers/filternav";
+import { FilternavContext } from "@/context/FilterContext";
 
 const itemsVariants = {
   open: {

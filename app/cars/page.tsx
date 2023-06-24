@@ -1,8 +1,8 @@
 import AsideFilters from "@/components/FilterSection/AsideFilters";
 import CarsSection from "@/components/FilterSection/CarsSection";
-import SearchbarProvider from "@/providers/searchbar";
+import SearchbarProvider from "@/context/SeachbarContext";
 import Searchbar from "@/components/Searchbar";
-import FilternavProvider from "@/providers/filternav";
+import FilternavProvider from "@/context/FilterContext";
 import Actions from "@/components/FilterSection/Actions";
 
 export default function Home() {

@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useEffect } from "react";
-import { AuthContext } from "@/providers/auth";
+import { AuthContext } from "@/context/AuthContext";
 import LinkAnchor from "../../components/LinkAnchor";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";

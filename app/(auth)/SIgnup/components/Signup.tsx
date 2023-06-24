@@ -7,7 +7,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { signupRequest } from "@/utils";
 import { useContext } from "react";
 import { UserType } from "@/types";
-import { AuthContext } from "@/providers/auth";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function Signup() {
   const router = useRouter();

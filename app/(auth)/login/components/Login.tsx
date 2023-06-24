@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { loginRequest } from "@/utils";
-import { AuthContext } from "@/providers/auth";
+import { AuthContext } from "@/context/AuthContext";
 import { UserType } from "@/types";
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
 
 
 export default function Login() {
@@ -22,13 +22,14 @@ export default function Login() {
 
   const router = useRouter();
 
-  const { setCurrentUser, currentUser } = useContext(AuthContext);
+  const { fetchCurrentUser } = useContext(AuthContext);
 
   const onSubmit: SubmitHandler<UserType> = async (data) => {
     try {
       const response = await loginRequest(data.email, data.password);
       if (response && response.status === 200) {
-        setCurrentUser(response.data.token);
+        const token = response.data.token;
+        Cookies.set("token", token);
         toast("Successfully logged in", {
           position: "top-center",
           autoClose: 5000,
@@ -39,11 +40,8 @@ export default function Login() {
           progress: undefined,
           theme: "light",
         });
-        Cookies.set("token", response?.data.token, {
-          expires: 1,
-        });
+        fetchCurrentUser(token);
         router.push("/");
-        console.log(Cookies.get("token"));
       } else {
         toast.error("Invalid credentials", {
           position: "top-center",

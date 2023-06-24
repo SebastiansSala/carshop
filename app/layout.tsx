@@ -1,6 +1,6 @@
 import Header from "@/app/components/Header";
 import "./globals.css";
-import AuthProvider from "@/providers/auth";
+import AuthProvider from "@/context/AuthContext";
 import { Footer } from "@/app/components/Footer";
 
 export const metadata = {

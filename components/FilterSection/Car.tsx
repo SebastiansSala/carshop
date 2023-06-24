@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useContext, useState } from "react";
-import { AuthContext } from "@/providers/auth";
+import { AuthContext } from "@/context/AuthContext";
 import { motion } from "framer-motion";
 import { CarsType } from "@/types";
-import { SearchbarContext } from "@/providers/searchbar";
+import { SearchbarContext } from "@/context/SeachbarContext";
 import Image from "next/image";
-import { FilternavContext } from "@/providers/filternav";
+import { FilternavContext } from "@/context/FilterContext";
 
 const itemsVariants = {
   open: {
