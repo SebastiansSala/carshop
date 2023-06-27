@@ -1,3 +1,4 @@
+"use client"
 import { SetStateAction, useState, Dispatch } from "react";
 import { ViewType } from "@/types";
 import CollectionNavbarBrand from "./CollectionNavbarBrand";
@@ -29,7 +30,7 @@ const CollectionNavbar = ({
 
   return (
     <>
-      <nav className="w-full">
+      <nav className="w-full px-10 overflow-x-auto">
         <ul className="flex gap-6 w-full">
           <CollectionNavbarBrand
             text="BMW"

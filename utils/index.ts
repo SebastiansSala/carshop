@@ -55,7 +55,6 @@ export const getCarsByBrand = async (brand: string) => {
       `http://localhost:5000/cars/${brand}`,
       {
         method: "GET",
-        next: {revalidate: 60}
       }
     );
     return await response.json();

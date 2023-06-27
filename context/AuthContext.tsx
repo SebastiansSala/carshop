@@ -39,9 +39,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       },
         
       });
-      console.log(response);
       const user = await response.data;
-      console.log(user);
       setCurrentUser(user);
     } catch (error) {
       console.error("Failed to fetch current user", error);
@@ -50,15 +48,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     Cookies.remove("token");
+    setCurrentUser(null);
   };
 
   useEffect(() => {
     const token = Cookies.get("token");
     if (token) {
-      console.log(token);
       fetchCurrentUser(token);
     }
-  }, []);
+  }, [currentUser]);
 
   return (
     <AuthContext.Provider

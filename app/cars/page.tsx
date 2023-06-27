@@ -1,9 +1,7 @@
-import AsideFilters from "@/components/FilterSection/AsideFilters";
-import CarsSection from "@/components/FilterSection/CarsSection";
 import SearchbarProvider from "@/context/SeachbarContext";
-import Searchbar from "@/components/Searchbar";
 import FilternavProvider from "@/context/FilterContext";
-import Actions from "@/components/FilterSection/Actions";
+import CarsSection from "@/app/cars/FilterSection/CarsSection";
+import Actions from "./FilterSection/Actions";
 
 export default function Home() {
   return (
@@ -11,7 +9,7 @@ export default function Home() {
       <FilternavProvider>
         <SearchbarProvider>
           <Actions />
-            <CarsSection />
+          <CarsSection />
         </SearchbarProvider>
       </FilternavProvider>
     </main>

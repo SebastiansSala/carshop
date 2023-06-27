@@ -1,23 +1,21 @@
 "use client";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "@/context/AuthContext";
-import LinkAnchor from "../../components/LinkAnchor";
-import Logo from "../../components/Logo";
-import Button from "../../components/Button";
+import { useContext } from "react";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
+import LinkAnchor from "@/components/LinkAnchor";
+import Logo from "@/components/Logo";
+import Button from "@/components/Button";
 
 const Header = () => {
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
-  const handleClick = () => {};
-
-  useEffect(() => {
-    console.log(currentUser);
-  }, []);
+  const handleClick = () => {
+    logout();
+  };
 
   return (
-    <header className="fixed w-full z-50 bg-white shadow-lg top-0 border-black py-4 px-6">
-      <div className="container mx-auto flex justify-between items-center">
+    <div className="fixed w-full top-0 shadow-lg bg-white z-50">
+      <header className="container mx-auto py-4 px-6 flex justify-between items-center">
         <Logo />
         <div className="flex gap-5 overflow-x-auto font-semibold text-lg whitespace-nowrap text-gray-700">
           <LinkAnchor title="Home" route="/" />
@@ -27,15 +25,15 @@ const Header = () => {
         </div>
 
         {currentUser && currentUser._id !== null ? (
-          <div>
+          <div className="flex gap-4 items-center">
             <Button text="logout" handleClick={handleClick} />
             <p>{currentUser.email || "For some reason cant get the email"}</p>
           </div>
         ) : (
           <Link href={"/login"}>Login</Link>
         )}
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 

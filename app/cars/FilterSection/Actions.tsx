@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { FilternavContext } from "@/context/FilterContext";
-import Searchbar from "../Searchbar";
+import Searchbar from "@/components/Searchbar";
 
 const Actions = () => {
   const { show, setShow } = useContext(FilternavContext);

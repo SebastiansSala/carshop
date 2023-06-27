@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Anchor from "./Anchor";
-
+import Anchor from "@/components/Anchor";
 export default function About() {
   return (
-    <section className="grid grid-cols-2 gap-12 py-24 px-36" id="about">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-12 py-24 px-8 md:px-36" id="about">
       <div>
         <Image
           src="/../public/images/about.jpg"

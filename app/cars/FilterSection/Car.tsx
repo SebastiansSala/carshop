@@ -44,7 +44,7 @@ const itemVariants = {
   },
 };
 
-function Products({ promise }: { promise: Promise<CarsType[]> }) {
+function Car({ promise }: { promise: Promise<CarsType[]> }) {
   const { search } = useContext(SearchbarContext);
   const [allCars, setAllCars] = useState<CarsType[]>([]);
   const [cars, setCars] = useState<CarsType[]>([]);
@@ -109,4 +109,4 @@ function Products({ promise }: { promise: Promise<CarsType[]> }) {
   );
 }
 
-export default Products;
+export default Car;

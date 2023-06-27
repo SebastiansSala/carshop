@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Button from "../../components/Button";
 import "@/styles/snap.css";
-import Anchor from "../../components/Anchor";
+import Anchor from "@/components/Anchor";
 import { motion, Variants } from "framer-motion";
 
 const carVariants: Variants = {
@@ -23,12 +23,12 @@ const carVariants: Variants = {
 export default function Hero() {
   return (
     <motion.section
-      className="relative flex mt-28 max-h-80 justify-center mb-20"
+      className="relative flex flex-col md:flex-row mt-28 justify-center mb-20"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: false }}
     >
-      <div className="z-10 w-1/2 top-0 mt-10 left-28">
+      <div className="z-10 mt-10 w-full md:w-1/2 top-0 text-center md:text-left md:mt-10 left-28 px-10 md:px-0">
         <h1 className="font-bold text-4xl mb-5">
           Search and Find your best car rental with easy way
         </h1>
@@ -39,7 +39,7 @@ export default function Hero() {
         </p>
         <Anchor text="Booking now" route="reservation" />
       </div>
-      <motion.div className="1/2" variants={carVariants}>
+      <motion.div className="relative -top-10 md:w-1/3" variants={carVariants}>
         <Image
           src="https://www.pngplay.com/wp-content/uploads/9/Luxury-Car-Transparent-Images.png"
           width={700}

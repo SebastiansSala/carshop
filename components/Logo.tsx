@@ -6,7 +6,7 @@ const Logo = () => {
       height="30"
       viewBox="0 0 76 19"
       fill="none"
-      className="fill-current w-28 h-auto"
+      className="hidden md:block fill-current w-28 h-auto"
     >
       <path
         fillRule="evenodd"
